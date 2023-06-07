@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>pag5</title>
+<style type="text/css">
+<!--
+body {
+	background-color: #42413C;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 100%;
+	line-height: 1.4;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 15px;
+	padding-left: 15px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs ~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	background-color: #000000;
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: right;
+	width: 180px;
+	background-color: #000000;
+	padding-bottom: 10px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: right;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #000000;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #000000;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #000000;
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.blanco {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+}
+.BLANQUITO {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 9px;
+	line-height: normal;
+	color: #FFF;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="header"><img src="../kk.jpg" width="92" height="67" /><!-- end .header --></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li class="blanco"><a href="../index.html" title="INICIO">INICIO</a></li>
+      <li class="blanco"><a href="pag2.html">FORMAS DE NUESTRO CUERPO</a><a href="#"></a></li>
+      <li class="blanco"><a href="pag3.html">MODALES EN LA MESA </a></li>
+      <li></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p><!-- end .sidebar1 --></p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </div>
+  <div class="content">
+    <center>
+    <h1>ROPA DE TEMPORADA </h1></center>
+    <p>&nbsp;</p>
+  <!-- end .content --></div>
+  <p><img src="../verano.jpg" width="310" height="163" /><span class="BLANQUITO">..........................</span><span class="blanco"><img src="../inverno.jpg" width="285" height="162" /></span></p>
+  <p><img src="../otoño.jpg" width="309" height="198" /><span class="BLANQUITO">............................</span><img src="../prime.jpg" width="285" height="193" /></p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+  <p>&nbsp;</p>
+ <center> <p>INVIERNO </p>
+   <table width="664" height="628" border="1">
+     <tr>
+       <td width="327" height="622"><p><img src="../in1.jpeg" width="140" height="241" /><img src="../in2.jpg" width="147" height="256" /></p>
+        <p><img src="../in5.jpg" width="297" height="293" /></p></td>
+       <td width="308"><img src="../in3.jpg" width="145" height="228" /><img src="../in4.jpg" width="167" height="228" /><img src="../in6.jpg" width="262" height="238" /></td>
+     </tr>
+   </table>
+   <p>&nbsp;</p>
+   <p>jaqueta puffer</p>
+   <p> Fue tendencia en 2022 y vuelve como protagonista de su moda  Otoño/Invierno 2023.  La chaqueta acolchada está inspirada en los uniformes de esquí. Es  perfecta para quienes viven en lugares con bajas temperaturas, ya que  están fabricadas con materiales acolchados y más cálidos.  Puedes encontrarlo desde versiones recortadas hasta de gran tamaño,  complaciendo a todos los estilos.  los colores estarán presentes durante este periodo en varias piezas,  pero no son las únicas que vienen a poner color a la temporada más  sobria. ¡También tendremos muchos estampados!  Los estampados que solemos ver en los días más cálidos, como los  florales y otros elementos de la naturaleza, estarán de moda y pueden  servirte de inspiración para tu moda Otoño/Invierno. Además de ellos,  también son precisos los motivos geométricos, como el ajedrez y sus  variantes.Cuero  Esta tela ya es un clásico de la temporada, y esta vez no será diferente.  Las piezas de cuero se volverán a ver con frecuencia en 2023, en  piezas que van desde pantalones hasta chaquetas.  La diferencia esta temporada es que también aparecerá en modelos  inéditos, como pantalones anchos y gabardinas, además de otras  prendas de largo maxi.</p>
+   <p> Sastrería</p>
+   <p> La sastrería es una gran apuesta a tener en cuenta en tu moda  Otoño/Invierno 2023.  Se la ha visto en desfiles de moda con piezas en tallas oversize y  colores que se escapan de lo estándar, siendo más fuertes y vivas.</p>
+   <p> Oversized</p>
+   <p> Al igual que el mini, los modelos más anchos marcarán la temporada.  Este tipo de piezas aporta un contraste super cool con colores más  abiertos y estampados florales.  Las chaquetas, los blazers e incluso los pantalones van a verse en  modelos más grandes que los convencionales.  All jeans  Una tendencia que se remonta a los años 2000, todos los jeans son una  fuerte apuesta para tu moda Otoño/Invierno 2023. Esta combinación  puede considerarse atrevida, ¡pero luce increíble!  Para que tu lanzamiento destaque, apuesta por lavados diferentes o  incluso monocromáticos, aportando un look más moderno o vintage,  según la propuesta.</p>
+   <p>&nbsp;</p>
+   <p>PRIMAVERA </p>
+   <table width="652" border="1">
+     <tr>
+       <td width="385"><p><img src="../pri1.jpg" width="132" height="176" /><img src="../pri2.jpg" width="197" height="173" /></p>
+        <p><img src="../pri3.png" width="355" height="226" /></p></td>
+       <td width="251"><img src="../prim4.jpg" width="238" height="279" /></td>
+     </tr>
+   </table>
+   <p>&nbsp;</p>
+   <p>&nbsp;</p>
+   <p>El tejido satinado en forma de falda estará muy de moda, así como las prendas con  encaje o los pantalones cargo. Si hablamos de denim, lo veremos no solo en  pantalonEn tipos de pantalones, reinarán dos tendencias opuestas: las amantes de la  moda urbana se enamorarán de los pantalones cargo, mientras que las más formales  apostarán por los pantalones de traje.es Y2K, sino también en bolsos.  la falda de tablas nos recuerda al estilo college, pero Miu Miu ha reinventado esta  prenda. La marca ha lanzado modelos tanto mini como midi, dependiendo de si  quieres vestir de manera atrevida o elegante</p>
+   <p>&nbsp;</p>
+   <p>VERANO </p>
+   <table width="742" border="1">
+     <tr>
+       <td width="323" height="427"><img src="../ver1.jpg" width="217" height="235" /><img src="../ver3.jpg" width="208" height="282" /></td>
+       <td width="403"><p><img src="../ver4.jpg" width="363" height="195" /></p>
+        <p><img src="../ver5.jpg" width="181" height="158" /><img src="../ver6.jpeg" width="166" height="149" /></p>
+        <p>&nbsp;</p></td>
+     </tr>
+   </table>
+   <p>&nbsp;</p>
+   <p>LENCERIA </p>
+   <p> La prendas de estilo lencero, reafirman su posición como favoritas del  street style. ¿La razón? Son capaces de transformar nuestro look con su  estética tan femenina y sensual.  Por si fuera poco, son tan versátiles, que fácilmente pueden combinarse  con jeans, sobre una camiseta, con un blazer, incluso usar un vestido  lencero con una biker jacket es un gran match. Se trata de lucir aquellas  piezas que, desde su origen, están hechas para realzar la belleza.</p>
+   <p>LENTEJUELAS </p>
+   <p> Siempre han estado presentes dentro de la moda y son un must have en  nuestro armario, ahora no sólo son exclusivas para salir de noche, puedes  usarlas perfectamente durante el día y tener esta textura tan fabulosa  como pieza clave de tu outfit.  </p>
+   <p> CORSET</p>
+   <p>Desde hace algunas temporadas, ha comenzado a aparecer entre las  pasarelas y las it-girls, ahora como una pieza de culto, hecha en distintos  materiales. Ha tenido un revival como el acento para elevar cualquier  look, además de estilizar nuestra silueta.  Pensar en usarlo en nuestra vida diaria puede parecer retador, pero es  mucho más sencillo de lo que parece, </p>
+   <p>OTOÑO </p>
+   <table width="414" border="1">
+     <tr>
+       <td width="200"><img src="../oto1.jpg" width="200" height="200" /></td>
+       <td width="198"><img src="../oto2.jpg" width="202" height="215" /></td>
+     </tr>
+   </table>
+   <p><img src="../oto4.jpg" width="182" height="137" /></p>
+   <p>CAPAS</p>
+   <p>Sí, una de las novedades (si puede llamarse así) que traerá el próximo otoño será en  formato capa.a pasarela demuestra que en realidad se trata de una prenda de lo  más versátil</p>
+   <p>MINIFALDA</p>
+   <p> Otra de las tendencias que tiene cuerda para rato es la minifalda. La viralidad del  conjunto de Miu Miu y que la firma siga apostando por la misma pauta de diseños es  la demostración de que esta prenda ha vuelto al armario por todo lo alto</p>
+   <p>LA SATRERIA </p>
+   <p> es una tendencia de este otoño, aunque ya viene marcando  terreno desde el año pasado. Con sacos estampados o lisos en  tonos neutros, el desfile ponderó al traje llevado de manera  informal, combinado con sweaters y mocasines o botines, según la  impronta que desees darle a tu look.<br />
+   </p>
+   <p>CUERO</p>
+   <p> Uno de los clásicos del otoño es el cuero y este 2023 tuvo su  protagonismo sobre la pasarela como tendencia absoluta.  Pantalones slouchy o rectos, leggings, minifaldas o chaquetas, este  material puede usarse en las prendas que quieras, pero con  moderación.  cuadros  Este otoño podrán decantarse por el print a cuadros. La tendencia  que más se repitió fue la de cuadros XXL, en distintos abrigos  como tapados, chaquetas o sobrecamisas. </p>
+   <p>&nbsp;</p>
+ </center>
+  <div class="footer">
+    <p>e quitarlo.</p>
+  <!-- end .footer --></div>
+<!-- end .container --></div>
+</body>
+</html>

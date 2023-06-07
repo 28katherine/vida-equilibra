@@ -1,0 +1,421 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>FORMAS DEL CUERPO</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	background-color: #000000;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 100%;
+	line-height: 1.4;
+}
+
+/* ~~ Selectores de elemento/etiqueta ~~ */
+ul, ol, dl { /* Debido a las diferencias existentes entre los navegadores, es recomendable no añadir relleno ni márgenes en las listas. Para lograr coherencia, puede especificar las cantidades deseadas aquí o en los elementos de lista (LI, DT, DD) que contienen. Recuerde que lo que haga aquí se aplicará en cascada en la lista .nav, a no ser que escriba un selector más específico. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 0;	 /* la eliminación del margen superior resuelve un problema que origina que los márgenes escapen de la etiqueta div contenedora. El margen inferior restante lo mantendrá separado de los elementos de que le sigan. */
+	padding-right: 30px;
+	padding-left: 60px; /* la adición de relleno a los lados del elemento dentro de las divs, en lugar de en las divs propiamente dichas, elimina todas las matemáticas de modelo de cuadro. Una div anidada con relleno lateral también puede usarse como método alternativo. */
+}
+a img { /* este selector elimina el borde azul predeterminado que se muestra en algunos navegadores alrededor de una imagen cuando está rodeada por un vínculo */
+	border: none;
+}
+
+/* ~~ La aplicación de estilo a los vínculos del sitio debe permanecer en este orden (incluido el grupo de selectores que crea el efecto hover -paso por encima-). ~~ */
+a:link {
+	color: #42413C;
+	text-decoration: underline; /* a no ser que aplique estilos a los vínculos para que tengan un aspecto muy exclusivo, es recomendable proporcionar subrayados para facilitar una identificación visual rápida */
+}
+a:visited {
+	color: #6E6C64;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* este grupo de selectores proporcionará a un usuario que navegue mediante el teclado la misma experiencia de hover (paso por encima) que experimenta un usuario que emplea un ratón. */
+	text-decoration: none;
+}
+
+/* ~~ este contenedor de anchura fija rodea a las demás divs ~~ */
+.container {
+	width: 960px;
+	background-color: #FFF;
+	margin: 0 auto; /* el valor automático de los lados, unido a la anchura, centra el diseño */
+}
+
+/* ~~ no se asigna una anchura al encabezado. Se extenderá por toda la anchura del diseño. Contiene un marcador de posición de imagen que debe sustituirse por su propio logotipo vinculado ~~ */
+.header {
+	background-color: #000000;
+}
+
+/* ~~ Estas son las columnas para el diseño. ~~ 
+
+1) El relleno sólo se sitúa en la parte superior y/o inferior de las divs. Los elementos situados dentro de estas divs tienen relleno a los lados. Esto le ahorra las "matemáticas de modelo de cuadro". Recuerde que si añade relleno o borde lateral a la div propiamente dicha, éste se añadirá a la anchura que defina para crear la anchura *total*. También puede optar por eliminar el relleno del elemento en la div y colocar una segunda div dentro de ésta sin anchura y el relleno necesario para el diseño deseado.
+
+2) No se asigna margen a las columnas, ya que todas ellas son flotantes. Si es preciso añadir un margen, evite colocarlo en el lado hacia el que se produce la flotación (por ejemplo: un margen derecho en una div configurada para flotar hacia la derecha). En muchas ocasiones, puede usarse relleno como alternativa. En el caso de divs para las que deba incumplirse esta regla, deberá añadir una declaración "display:inline" a la regla de la div para evitar un error que provoca que algunas versiones de Internet Explorer dupliquen el margen.
+
+3) Dado que las clases se pueden usar varias veces en un documento (y que también se pueden aplicar varias clases a un elemento), se ha asignado a las columnas nombres de clases en lugar de ID. Por ejemplo, dos divs de barra lateral podrían apilarse si fuera necesario. Si lo prefiere, éstas pueden cambiarse a ID fácilmente, siempre y cuando las utilice una sola vez por documento.
+
+4) Si prefiere que la navegación esté a la izquierda en lugar de a la derecha, simplemente haga que estas columnas floten en dirección opuesta (todas a la izquierda en lugar de todas a la derecha) y éstas se representarán en orden inverso. No es necesario mover las divs por el código fuente HTML.
+
+*/
+.sidebar1 {
+	float: right;
+	width: 180px;
+	background-color: #000000;
+	padding-bottom: 20px;
+}
+.content {
+
+	padding: 10px 0;
+	width: 780px;
+	float: right;
+}
+
+/* ~~ Este selector agrupado da espacio a las listas del área de .content ~~ */
+.content ul, .content ol { 
+	padding: 0 15px 15px 40px; /* este relleno reproduce en espejo el relleno derecho de la regla de encabezados y de párrafo incluida más arriba. El relleno se ha colocado en la parte inferior para que el espacio existente entre otros elementos de la lista y a la izquierda cree la sangría. Estos pueden ajustarse como se desee. */
+}
+
+/* ~~ Los estilos de lista de navegación (pueden eliminarse si opta por usar un menú desplegable predefinido como el de Spry) ~~ */
+ul.nav {
+	list-style: none; /* esto elimina el marcador de lista */
+	border-top: 1px solid #666; /* esto crea el borde superior de los vínculos (los demás se sitúan usando un borde inferior en el LI) */
+	margin-bottom: 15px; /* esto crea el espacio entre la navegación en el contenido situado debajo */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* esto crea la separación de los botones */
+}
+ul.nav a, ul.nav a:visited { /* al agrupar estos selectores, se asegurará de que los vínculos mantengan el aspecto de botón incluso después de haber sido visitados */
+	padding: 5px 5px 5px 15px;
+	display: block; /* esto asigna propiedades de bloque al vínculo, lo que provoca que llene todo el LI que lo contiene. Esto provoca que toda el área reaccione a un clic de ratón. */
+	width: 160px;  /*esta anchura hace que se pueda hacer clic en todo el botón para IE6. Puede eliminarse si no es necesario proporcionar compatibilidad con IE6. Calcule la anchura adecuada restando el relleno de este vínculo de la anchura del contenedor de barra lateral. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* esto cambia el color de fondo y del texto tanto para usuarios que naveguen con ratón como para los que lo hagan con teclado */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+/* ~~ El pie de página ~~ */
+.footer {
+	padding: 10px 0;
+	background-color: #000000;
+	position: relative;/* esto da a IE6 hasLayout para borrar correctamente */
+	clear: both; /* esta propiedad de borrado fuerza a .container a conocer dónde terminan las columnas y a contenerlas */
+}
+
+/* ~~ clases float/clear varias ~~ */
+.fltrt {  /* esta clase puede utilizarse para que un elemento flote en la parte derecha de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* esta clase puede utilizarse para que un elemento flote en la parte izquierda de la página. El elemento flotante debe preceder al elemento junto al que debe aparecer en la página. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* esta clase puede situarse en una <br /> o div vacía como elemento final tras la última div flotante (dentro de #container) si #footer se elimina o se saca fuera de #container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+.blanquito {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 16px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #FFF;
+}
+-->
+</style></head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <p><a href="#"></a><a href="#"></a><a href="#"><img src="../kk.jpg" width="92" height="67" /></a></p>
+
+    <!-- end .header --></div>
+  <div class="sidebar1">
+    <ul class="nav">
+      <li class="blanquito"><a href="../index.html" title="INICIO">*INICIO </a></li>
+    </ul>
+    <ul class="nav">
+      <li class="blanquito"><a href="pag3.html" title="MESA">MODALES EN LA MESA</a></li>
+    </ul>
+    <ul class="nav">
+      <li class="blanquito"><a href="pag5.html" title="TEMPORADA">ROPA DE TEMPORADA</a><!-- end .sidebar1 --></li>
+    </ul>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+  </div>
+  <div class="content">
+    <center><h1>formas de nuestro cuerpo </h1></center>
+      <LEFT>
+    <p></LEFT>
+      
+ <RIGHT></RIGHT>
+ <LEFT></LEFT></p>
+ <p><RIGHT></RIGHT>
+      <LEFT></LEFT>
+    <center>
+      <img src="../cuerpos.jpeg" width="640" height="428" />
+    </Center>
+ </p>
+ <p>Si quieres sentirte mejor con tu cuerpo, aquí te ofrecemos algunos consejos:</p>
+ <ul>
+   <li><strong>No esperes que tu cuerpo sea perfecto.</strong> Ningún cuerpo lo es. Es bueno que aceptes y quieras al cuerpo que tienes. Es tuyo, por lo tanto, muéstrale algo de cariño.</li>
+   <li><strong>Piensa en las cosas que te gustan de tu aspecto.</strong> ¿Tienes piernas largas? ¿Hombros anchos? ¿Una gran sonrisa? ¿Un rostro amigable? Intenta ver las cosas buenas que otras personas ven cuando te miran.</li>
+ </ul>
+ <p>&nbsp;</p>
+ <center><p>&nbsp; </p>
+   <p>TRIANGULO </p>
+ </center>
+ <p><center>
+   <table width="561" border="1">
+     <tr>
+       <td width="210"><img src="../trianulo.gif" width="210" height="310" /></td>
+       <td width="335"><p>¿Como saber si mi cuerpo es triangular? </p>
+         <p>mis caderas son 5% mas grandes que el resto de mi cuerpo. </p>
+         <p>Las mujeres con silueta de triángulo tienen la parte superior del cuerpo más estrecha, con unos hombros ligeramente más pequeños que las caderas.</p>
+         <p>&nbsp;</p></td>
+     </tr>
+ </table>
+   <p>&nbsp;</p>
+   </center>
+ <ul>
+   <li>
+     <center>
+       <p>PRENDAS QUE SI TIENES QUE UTILIZAR </p></center>
+       <p><img src="../ectangulo3.jpeg" width="215" height="275" /><img src="../RT.jpg" width="176" height="219" /><img src="../image-10-2.jpg" width="162" height="259" /></p>
+   </li>
+   <li>A utilizar colores brillantes, tonos fuertes y estampados en la parte superior. Crea a la vez contraste con colores neutros en la parte inferior para reequilibrar visualmente la figura.     </li>
+   <li>A los tacones para estilizar y equilibrar la figura. En cuanto a complementos, opta por unos maxi pendientes o por un collar choker.</li>
+   <li>   </li>
+ </ul>
+ <center>
+   <p>TRIANGULO INVERTIDO</p>
+   <table width="542" border="1">
+     <tr>
+       <td width="210"><img src="../triangulo invertido.gif" width="209" height="238" /></td>
+       <td width="316"><p>¿como saber si mi cuerpo es un triangulo invertido ?</p>
+         <p>hombros un 5 % mas anchos que las caderas </p>
+         <p>CARACTERISTICAS </p>
+         <ul>
+           <li>Tronco prácticamente recto</li>
+           <li>Hombros y espalda anchos</li>
+           <li>Busto mediano tirando a ancho</li>
+           <li>Cintura poco definida</li>
+           <li>Caderas y glúteos estrechos</li>
+           <li>Piernas delgadas</li>
+         </ul></td>
+     </tr>
+   </table>
+   <p>&nbsp; </p>
+   <p>PRENDAS QUE SI TINES QUE UTILIZAR </p>
+   <p><img src="../trin invertido.jpg" width="169" height="236" /><img src="../tri in.jpg" width="153" height="224" /><img src="../ti in.jpg" width="190" height="220" /></p>
+ </center>
+ </p>
+ <ul>
+   <li>Marca tu cintura</li>
+   <li>Usa prendas inferiores que te ayuden a equilibrar tu silueta: utiliza colores claros, tejidos gruesos y volumen </li>
+ </ul>
+ <center>
+   <p>RECTANGULO </p>
+   <table width="376" height="263" border="1">
+     <tr>
+       <td width="174"><img src="../Cuerpo Rectangular.jpg" width="177" height="322" /></td>
+       <td width="222"><p>¿como saber si tengo cuerpo de rectangulo?</p>
+         <p>hombros y caderas tiene el m,ismo valor y la diferencia de mi cintura no pasa del 25%</p></td>
+     </tr>
+   </table>
+   <p>&nbsp;</p>
+   <p>PRENDAS QUE SI TIENES QUE UTILIZAR </p>
+   <p><img src="../ectangulo3.jpeg" width="197" height="274" /></p>
+   </center>
+ <ul>
+   <li>
+     <center>
+       <p>A destacar la cintura. Utiliza cinturones, tanto en la cintura como en la cadera, para resaltar las curvas.</p>
+       <p>generando volumen con capas, flecos o prendas voluminosas en uno de los tres puntos clave de tu silueta </p>
+       <p>CIRCULAR </p>
+       <table width="384" border="1">
+         <tr>
+           <td width="147"><img src="../ovalo.jpeg" width="167" height="246" /></td>
+           <td width="221"><p>¿COMO SABER SI TNGO UN CUERPO CIRCULAR?</p>
+             <p>MI ADOMEN O CINTURA SON MAYORES A MIS HOMBROSY CADERAS </p></td>
+           </tr>
+         </table>
+       <p>&nbsp;</p>
+       <p>PRENDAS QUE SI TINES QUE UTLILIZAR </p>
+       <p><img src="../OV2.jpg" width="200" height="256" /><img src="../OV3.jpg" width="170" height="218" /></p>
+     </center>
+     <center>
+       <ul>
+         <li>Opta por escotes redondos o en forma de V</li>
+         <li>Crea líneas verticales con las prendas</li>
+         <li>Prioriza los colores lisos a los estampados</li>
+         </ul>
+       <p>&nbsp;</p>
+       <p>RELOJ DE ARENA </p>
+       <table width="432" height="253" border="1">
+         <tr>
+           <td><img src="../relojfalda.gif" width="210" height="310" /></td>
+           <td><p>¿COMO SABER QUE SOY CUERPO RELOJ DE ARENA ?</p>
+             <p>MIS HOMBROS SON DE LAS MISMAS MEDIDAS Y MI CINTURA ES 25%MAS ESTRECHA </p></td>
+         </tr>
+       </table>
+       <p>&nbsp; </p>
+       <p>PRENDAS QUE  TIENES QUE UTLILIZAR </p>
+       <p><img src="../01_collage_formal-2-720x900.jpg" width="220" height="200" /></p>
+       </center>
+   </li>
+ </ul>
+ <p>
+   <center>
+   </center>
+ </p>
+ <blockquote>
+   <p>
+     <center>
+       <ul>
+         <li>Opta por <a href="https://lookiero.es/blog/como-es-tu-pecho-que-escote-llevar/">escotes redondos o en forma de V</a></li>
+         <li>Blusas o camisetas entalladas</li>
+       </ul>
+       </center>
+     </p>
+ </blockquote>
+ <center>
+   <p>&nbsp;</p>
+ </center>
+    
+      <p>&nbsp;</p>
+   
+    <p>&nbsp;</p>
+    <!-- end .content --></div>
+  <div class="footer">
+    <p>E</p>
+    <!-- end .footer --></div>
+  <!-- end .container --></div>
+</body>
+</html>
